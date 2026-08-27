@@ -6,7 +6,7 @@ const path = require("path");
 
 function usage() {
   console.log(`
-Codex First Customer Finder Skill installer
+Codex Customer Discovery Skills installer
 
 Usage:
   npx codex-first-customer-finder-skill
@@ -67,20 +67,24 @@ function main() {
     return;
   }
 
-  const source = path.resolve(__dirname, "..", "first-customer-finder");
   const skillsDir = path.resolve(options.skillsDir || defaultSkillsDir());
-  const destination = path.join(skillsDir, "first-customer-finder");
-  if (!fs.existsSync(source)) throw new Error(`Cannot find bundled skill at ${source}`);
-
   fs.mkdirSync(skillsDir, { recursive: true });
-  fs.rmSync(destination, { recursive: true, force: true });
-  copyDirectory(source, destination);
 
-  console.log("Installed first-customer-finder skill.");
-  console.log(`Location: ${destination}`);
+  const skillNames = ["first-customer-finder", "custdev-interviewer"];
+  for (const skillName of skillNames) {
+    const source = path.resolve(__dirname, "..", skillName);
+    const destination = path.join(skillsDir, skillName);
+    if (!fs.existsSync(source)) throw new Error(`Cannot find bundled skill at ${source}`);
+    fs.rmSync(destination, { recursive: true, force: true });
+    copyDirectory(source, destination);
+    console.log(`Installed ${skillName} skill.`);
+    console.log(`Location: ${destination}`);
+  }
+
   console.log("");
   console.log("Restart Codex, then run:");
   console.log("  Use $first-customer-finder to find ten potential first customers for https://example.com.");
+  console.log("  Use $custdev-interviewer to conduct a CustDev interview one question at a time.");
 }
 
 try {
