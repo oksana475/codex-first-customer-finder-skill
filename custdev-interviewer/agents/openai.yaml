@@ -1,0 +1,4 @@
+interface:
+  display_name: "CustDev Interviewer"
+  short_description: "Run evidence-based CustDev interviews"
+  default_prompt: "Use $custdev-interviewer to conduct a CustDev interview one question at a time and analyze the evidence."

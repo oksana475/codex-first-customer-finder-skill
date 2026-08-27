@@ -17,6 +17,7 @@
   },
   "files": [
     "first-customer-finder",
+    "custdev-interviewer",
     "scripts/install.js",
     "README.md",
     "LICENSE"

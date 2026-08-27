@@ -1,6 +1,6 @@
-# Codex First Customer Finder Skill
+# Codex Customer Discovery Skills
 
-A Codex skill that turns a startup URL or product idea into a qualified shortlist of potential first customers using recent public pain, demand, and timing signals.
+Two complementary Codex skills for finding potential first customers and learning from evidence-based CustDev interviews.
 
 It defines the ideal customer profile, researches public sources, links the evidence behind every prospect, ranks fit and timing, drafts a source-based opener, and creates a polished HTML report. It never sends outreach automatically.
 
@@ -30,6 +30,8 @@ This installs the skill into:
 
 Restart Codex after installation.
 
+The package installs both `$first-customer-finder` and `$custdev-interviewer`.
+
 ## Usage
 
 Find the first ten potential customers:
@@ -48,6 +50,18 @@ B2B research:
 
 ```text
 Use $first-customer-finder in b2b mode for [URL]. Find public business triggers, qualify the relevant companies, and draft one opener per prospect without sending anything.
+```
+
+Conduct a CustDev interview interactively:
+
+```text
+Use $custdev-interviewer to interview me about the last time our company actively searched for new customers. Ask one question at a time.
+```
+
+Analyze interview transcripts:
+
+```text
+Use $custdev-interviewer to analyze these transcripts, separate facts from hypotheses, and synthesize situation-based segments: [transcripts].
 ```
 
 ## Output
@@ -82,6 +96,7 @@ Prospects are hypotheses based on public signals, not confirmed customers or gua
 git clone https://github.com/Kappaemme-git/codex-first-customer-finder-skill.git
 mkdir -p ~/.codex/skills
 cp -R codex-first-customer-finder-skill/first-customer-finder ~/.codex/skills/first-customer-finder
+cp -R codex-first-customer-finder-skill/custdev-interviewer ~/.codex/skills/custdev-interviewer
 ```
 
 Restart Codex after installation.
